@@ -6,7 +6,16 @@ import Inputs from "./components/Inputs";
 import TemperatureAndDetails from "./components/TemperatureAndDetails";
 import TimeAndLocation from "./components/TimeAndLocation";
 
+import getFormattedWeatherData from "./services/weatherService";
+
 function App() {
+  const fetchWeather = async () => {
+    const data = await getFormattedWeatherData({ q: "london" });
+    console.log(data);
+  };
+
+  fetchWeather();
+
   return (
     <div className="mx-auto max-w-screen-[1024px] py-8 px-5 sm:px-20 bg-gradient-to-br from-cyan-500 to-blue-500">
       <ButtonsTop />
