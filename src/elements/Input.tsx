@@ -4,7 +4,18 @@ import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 
-export default function Input() {
+export default function Input({
+  setQuery,
+  units,
+  setUnits,
+  city,
+  setCity,
+}: any) {
+  const handleSearchClick = () => {
+    if (city !== "") {
+      setQuery({ q: city });
+    }
+  };
   return (
     <Paper
       component="form"
@@ -14,8 +25,15 @@ export default function Input() {
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search..."
         inputProps={{ "aria-label": "search google maps" }}
+        value={city}
+        onChange={(e) => setCity(e.currentTarget.value)}
       />
-      <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+      <IconButton
+        type="button"
+        sx={{ p: "10px" }}
+        aria-label="search"
+        onClick={handleSearchClick}
+      >
         <SearchIcon />
       </IconButton>
     </Paper>

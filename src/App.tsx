@@ -31,7 +31,7 @@ type Weather = {
 };
 
 function App() {
-  const [query, setQuery] = useState({ q: "warsaw" });
+  const [query, setQuery] = useState<object>({ q: "warsaw" });
   const [units, setUnits] = useState("metric");
   // const [weather, setWeather] = useState<any>(null);
 
@@ -52,8 +52,8 @@ function App() {
 
   return (
     <div className="mx-auto max-w-screen-[1024px] py-8 px-5 sm:px-20 bg-gradient-to-br from-cyan-500 to-blue-500">
-      <ButtonsTop />
-      <Inputs />
+      <ButtonsTop setQuery={setQuery} />
+      <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
       {weather && (
         <div>
