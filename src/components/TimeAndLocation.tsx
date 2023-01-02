@@ -1,10 +1,11 @@
 import React from "react";
+import { formatToLocalTime } from "../services/weatherService";
 
-export default function TimeAndLocation() {
+export default function TimeAndLocation({ weather }: any) {
   return (
     <div className="flex flex-col items-center justify-center text-white">
-      <div className="font-light">Tuesday, 31 May 2022 | Local time 12:48</div>
-      <h1 className="text-5xl py-10">Poznań</h1>
+      <div className="font-light">{formatToLocalTime(weather.dt)}</div>
+      <h1 className="text-5xl py-10">{weather.name}</h1>
     </div>
   );
 }

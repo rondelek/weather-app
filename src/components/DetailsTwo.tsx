@@ -4,14 +4,31 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import WbTwilightIcon from "@mui/icons-material/WbTwilight";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { formatToLocalTime } from "../services/weatherService";
 
-export default function DetailsTwo() {
+export default function DetailsTwo({ weather }: any) {
   return (
     <>
-      <Detail icon={<WbSunnyIcon />} title={"Rise:"} state={"5:34"} />
-      <Detail icon={<WbTwilightIcon />} title={"Set:"} state={"23:12"} />
-      <Detail icon={<ArrowUpwardIcon />} title={"High:"} state={"23°"} />
-      <Detail icon={<ArrowDownwardIcon />} title={"Low:"} state={"16°"} />
+      <Detail
+        icon={<WbSunnyIcon />}
+        title={"Rise:"}
+        state={formatToLocalTime(weather.sunrise, "hh:mm a")}
+      />
+      <Detail
+        icon={<WbTwilightIcon />}
+        title={"Set:"}
+        state={formatToLocalTime(weather.sunset, "hh:mm a")}
+      />
+      <Detail
+        icon={<ArrowUpwardIcon />}
+        title={"High:"}
+        state={Math.floor(weather.temp_max) + "°"}
+      />
+      <Detail
+        icon={<ArrowDownwardIcon />}
+        title={"Low:"}
+        state={Math.floor(weather.temp_min) + "°"}
+      />
     </>
   );
 }

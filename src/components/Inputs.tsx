@@ -14,9 +14,13 @@ export default function Inputs() {
         </IconButton>
       </div>
       <div className="flex items-center justify-end w-1/4 text-white text-xl">
-        <button className="hover:scale-150 duration-500">°C</button>
+        <button name="metric" className="hover:scale-150 duration-500">
+          °C
+        </button>
         <p className="px-2">|</p>
-        <button className="hover:scale-150 duration-500">°F</button>
+        <button name="imperial" className="hover:scale-150 duration-500">
+          °F
+        </button>
       </div>
     </div>
   );

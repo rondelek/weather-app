@@ -1,9 +1,10 @@
 import React from "react";
+import { iconUrlFromCode } from "../services/weatherService";
 
-export default function WeatherImage() {
+export default function WeatherImage({ weather }: any) {
   return (
     <div className="mx-auto">
-      <img src="http://openweathermap.org/img/wn/02d@2x.png" alt="" />
+      <img src={iconUrlFromCode(weather.icon)} alt="" />
     </div>
   );
 }
