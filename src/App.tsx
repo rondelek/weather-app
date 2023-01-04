@@ -81,7 +81,6 @@ function App() {
         return "bg-gradient-to-br from-cyan-700 to-blue-700";
     }
   };
-  console.log(weather.icon);
   return (
     <div
       className={`mx-auto max-w-screen-[1024px] py-8 px-5 sm:px-20  bg-cover bg-center ${formatBackground()}`}
