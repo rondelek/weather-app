@@ -12,6 +12,7 @@ export default function Input({
   setCity,
 }: any) {
   const handleSearchClick = () => {
+    console.log(city);
     if (city !== "") {
       setQuery({ q: city });
     }
